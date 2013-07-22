@@ -11,7 +11,7 @@ def read_input_data(encoding="cp1251"):
         return json.load(f)
 
 def from_http():
-    r = urllib2.urlopen('http://www.oldieworld.com/input_data.json')
+    r = urllib2.urlopen('https://raw.github.com/estupnikov/yandex_json/master/input_data.json')
 
     return json.load(r)
 
@@ -23,4 +23,13 @@ def from_http():
 #                pass
 
 #print read_input_data()
-print from_http()
+
+input_http_example = "https://raw.github.com/estupnikov/yandex_json/master/input_data.json"
+
+def read_input_data(input_http):
+    read_data = urllib2.urlopen(input_http)
+
+    return json.load(read_data)
+
+print read_input_data(input_http_example)
+#print from_http()
