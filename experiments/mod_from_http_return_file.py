@@ -70,5 +70,7 @@ def analyse_data (input_http):
     result = check_correct (working_data, max_x_y) # Check if sum for each column in provided data correct
 
     return str(result) # Return result
+#    with open("output_file.json", 'w') as output_file: # Pack result in json-file
+#        json.dump(result, output_file)
 
-#print analyse_data(input_http_example)
+print analyse_data(input_http_example)
