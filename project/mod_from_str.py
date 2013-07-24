@@ -1,16 +1,15 @@
 import json
-import urllib2
 
-# URL for input json-data
+# Srting for input json-data
 
-input_http_example = "https://raw.github.com/estupnikov/yandex_json/master/project/input_data.json"
+input_str_example = '[{"value": 0,"x":1,"y":2},{"value": 4,"x":3,"y":2},{"value": 2,"x":3,"y":4},{"value": 1,"x":1,"y":5},{"value": 6,"x":3,"y":5},{"value": 1,"x":1,"y":4}]'
 
 # Load json-data, format into list
 
-def read_input_data(input_http):
-    read_data = urllib2.urlopen(input_http)
+def read_input_data(input_str):
+    read_data = input_str.replace("'","\"")
 
-    return json.load(read_data)
+    return json.loads(read_data)
 
 # Define table size
 
@@ -60,8 +59,8 @@ def check_correct (working_data, max_x_y):
 
 # Define if sum of the numbers in each column in input table is equal to an appropriate value in the last row
 
-def analyse_data (input_http):
-    input_data = read_input_data(input_http) # Load data, format into list
+def analyse_data (input_str):
+    input_data = read_input_data(input_str) # Load data, format into list
 
     max_x_y = define_max_x_y(input_data) # Define table size
 
@@ -71,4 +70,4 @@ def analyse_data (input_http):
 
     return str(result) # Return result
 
-#print analyse_data(input_http_example)
+#print analyse_data(input_str_example)
